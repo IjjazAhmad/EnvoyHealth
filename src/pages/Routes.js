@@ -1,13 +1,18 @@
 import React from 'react'
 import Header from '../components/Header'
-import Home from './Frontend/Home'
-export default function Routes() {
+import Frontend from './Frontend'
+import Footer from '../components/Footer'
+import { Route,Routes } from 'react-router-dom'
+export default function Index() {
   return (
     <>
     <Header/>
     <main>
-      <Home/>
+      <Routes>
+        <Route path='/*' element={<Frontend/>} />
+      </Routes>
     </main>
+    <Footer/>
     </>
   )
 }

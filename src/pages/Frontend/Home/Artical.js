@@ -17,7 +17,7 @@ export default function Artical() {
                             <div className="col-12 col-md-6 col-lg-4">
                                 <div className="card card-blog">
                                     <div className="card-image">
-                                         <img className="img" src={articaImgs.artical2} />
+                                        <img className="img" src={articaImgs.artical2} />
                                         <div className="ripple-cont"></div>
                                     </div>
                                     <div className="table">
@@ -38,7 +38,7 @@ export default function Artical() {
                             <div className="col-12 col-md-6 col-lg-4">
                                 <div className="card card-blog ">
                                     <div className="card-image">
-                                         <img className="img" src={articaImgs.artical1} />
+                                        <img className="img" src={articaImgs.artical1} />
                                         <div className="ripple-cont"></div>
                                     </div>
                                     <div className="table">
@@ -59,7 +59,7 @@ export default function Artical() {
                             <div className="col-12 col-md-6 col-lg-4">
                                 <div className="card card-blog">
                                     <div className="card-image">
-                                         <img className="img" src={articaImgs.artical3} />
+                                        <img className="img" src={articaImgs.artical3} />
                                         <div className="ripple-cont"></div>
                                     </div>
                                     <div className="table">
@@ -79,10 +79,10 @@ export default function Artical() {
                             </div>
                         </div>
                         <div className="row">
-                        <div className="col my-5 text-center">
-                            <button type="button" className="btn btn-secondary rounded-pill px-5 button1">VIEW ALL</button>
+                            <div className="col my-5 text-center">
+                                <button type="button" className="btn btn-secondary rounded-pill px-5 button1">VIEW ALL</button>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>

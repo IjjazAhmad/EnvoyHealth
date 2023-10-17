@@ -1,0 +1,118 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+export default function Contact() {
+  return (
+    <div className='contact'>
+      <div className="container-fluid py-5 contactForm">
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-8 col-lg-6">
+            <div className="box bg-white button1 p-5">
+              <div className="text-center">
+                <h3>Contact Us</h3>
+                <p style={{ fontSize: "14px" }}>Fill out the form and send us a secure message. We will respond as soon as possible.</p>
+              </div>
+              <div className="row">
+                <div className="col-12 col-md-6 col-lg-6">
+                  <div className="mb-3">
+                    <label htmlFor="name" className="form-label">Name</label>
+                    <input type="text" className="form-control" id="name" placeholder="Enter name" />
+                  </div>
+                </div>
+                <div className="col-12 col-md-6 col-lg-6">
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email</label>
+                    <input type="email" className="form-control" id="email" placeholder="Enter email" />
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col">
+                  <div className="mb-3">
+                    <label htmlFor="subject" className="form-label">Subject</label>
+                    <input type="text" className="form-control" id="subject" placeholder="Type your subject" />
+                  </div>
+                </div>
+
+              </div>
+              <div className="row">
+                <div className="col">
+                  <div className="mb-3">
+                    <label htmlFor="message" className="form-label">Message</label>
+                    <textarea type="text" rows={"5"} className="form-control" id="message" placeholder="Type message" />
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-12 col-md-12 col-lg-8">
+                  <div className="form-check">
+                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                    <label className="form-check-label " htmlFor="flexCheckDefault" style={{ fontSize: "14px" }}>
+                      This site is protected by reCAPTCHA and the Google <Link>Privacy Policy</Link> and <Link>Terms of Service</Link> apply.
+                    </label>
+                  </div>
+                </div>
+
+                <div className="col-12 col-md-12 col-lg-4 text-center">
+                  <Link to={"/"} className="btn btn-primary text-white rounded-pill button1">SEND MESSAGE</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="treatment">
+        <div className="container mt-5 my-4">
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-8 col-lg-8 text-center">
+              <h4 >We’d love to hear from you</h4>
+              <p className='w-75 '>Supporting text</p>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-3">
+              <div className="card p-4 mb-4">
+                <div className="imgDiv ">
+                <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <h4 className='fs-5'>Visit Us</h4>
+                <p>visit our office HQ</p>
+                <p className='text-primary nav-link'>4118 Providence Lane <br /> Alhambra, CA 91801</p>
+              </div>
+            </div>
+            <div className="col-3">
+              <div className="card p-4 mb-4">
+                <div className="imgDiv ">
+                <i class="fa-regular fa-envelope"></i>
+                </div>
+                <h4 className='fs-5'>Mail us</h4>
+                <p>Speak with our team</p>
+                <p className='text-primary nav-link'>Support@hwmresume.com <br />Sale@hwmresume.com</p>
+              </div>
+            </div>
+            <div className="col-3">
+              <div className="card p-4 mb-4">
+                <div className="imgDiv ">
+                <i class="fa-solid fa-phone-volume"></i>
+                </div>
+                <h4 className='fs-5'>Call Us</h4>
+                <p>Mon-Fri from 8am to 5pm</p>
+                <p className='text-primary nav-link'>(+92) 326-7876344 <br />(+92) 326-7876344 </p>
+              </div>
+            </div>
+
+
+          </div>
+          <div className="row">
+            <div className="col my-5 text-center">
+              <button type="button" className="btn btn-secondary rounded-pill px-5 button1">SEE ALL</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
