@@ -31,7 +31,7 @@ export default function Navbar() {
               
             </ul>
             <div className="d-flex">
-                <button type='button' className="btn btn-outline text-primary">Signin</button>
+                <Link to={"auth/login"} className="btn btn-outline text-primary">Signin</Link>
                 <button type='button' className="btn btn-outline-primary">GET STARTED</button>
                 
             </div>

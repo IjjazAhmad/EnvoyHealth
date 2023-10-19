@@ -1,7 +1,11 @@
 import React from 'react'
 import DoctorCard from '../../../components/Card/DoctorCard'
 import { DocImg } from '../../../assets/images/doctorCard'
+import { useParams } from 'react-router-dom'
 export default function DoctorSec() {
+  const {doctorid} = useParams()
+  
+  
   return (
     <div className="doctorSection">
       <div className="container ">
@@ -15,13 +19,13 @@ export default function DoctorSec() {
       <div className="container my-5">
         <div className="row">
           <div className="col-12 col-md-6 col-lg-4 mb-3">
-            <DoctorCard Image={DocImg.docter1} name="Camilla Wasif" category="Oncologist" />
+            <DoctorCard Image={DocImg.docter1} name="Camilla Wasif" category="Oncologist" bookUrl={`/${doctorid}`}/>
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-3">
-            <DoctorCard Image={DocImg.docter2} name="Kristin Watson" category="Cardiologist" />
+            <DoctorCard Image={DocImg.docter2} name="Kristin Watson" category="Cardiologist" bookUrl={`/${doctorid}`}/>
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-3">
-            <DoctorCard Image={DocImg.docter3} name="Kristin Watson" category="Cardiologist" />
+            <DoctorCard Image={DocImg.docter3} name="Kristin Watson" category="Cardiologist" bookUrl={`/${doctorid}`}/>
           </div>
         </div>
         <div className="row">

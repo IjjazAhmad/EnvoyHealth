@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function DoctorCard(props) {
-    const {Image, name, category} =props
+    const {Image, name, category,bookUrl} =props
     return (
         <>
         <div className="cards-1">
@@ -10,7 +11,7 @@ export default function DoctorCard(props) {
                     <div className="col-12">
                         <div className="card card-blog">
                             <div className="card-image">
-                                <a href="#"> <img className="img" src={Image} /> </a>
+                                <Link to={bookUrl} > <img className="img" src={Image} /> </Link>
                                 <div className="ripple-cont"></div>
                             </div>
                             <div className="table">
@@ -18,7 +19,7 @@ export default function DoctorCard(props) {
                                 <p className="">{category} </p> <br />
                                 <p className="my-3 text-body-tertiary"><i className="fa-solid fa-location-dot"></i> Henderson, Colorado |</p>
                                 <div className='text-center my-3'>
-                                        <button type="button" className="btn btn-primary rounded-pill px-5 button1 ">BOOK DOCTOR</button>
+                                        <Link to={bookUrl}  className="btn btn-primary rounded-pill px-5 button1 ">BOOK DOCTOR</Link>
                                 </div>
                             </div>
                         </div>

@@ -73,30 +73,30 @@ export default function Contact() {
         </div>
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-3">
+            <div className="col-12 col-md-4 col-lg-4">
               <div className="card p-4 mb-4">
                 <div className="imgDiv ">
-                <i class="fa-solid fa-location-dot"></i>
+                <i className="fa-solid fa-location-dot"></i>
                 </div>
                 <h4 className='fs-5'>Visit Us</h4>
                 <p>visit our office HQ</p>
                 <p className='text-primary nav-link'>4118 Providence Lane <br /> Alhambra, CA 91801</p>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-12 col-md-4 col-lg-4">
               <div className="card p-4 mb-4">
                 <div className="imgDiv ">
-                <i class="fa-regular fa-envelope"></i>
+                <i className="fa-regular fa-envelope"></i>
                 </div>
                 <h4 className='fs-5'>Mail us</h4>
                 <p>Speak with our team</p>
                 <p className='text-primary nav-link'>Support@hwmresume.com <br />Sale@hwmresume.com</p>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-12 col-md-4 col-lg-4">
               <div className="card p-4 mb-4">
                 <div className="imgDiv ">
-                <i class="fa-solid fa-phone-volume"></i>
+                <i className="fa-solid fa-phone-volume"></i>
                 </div>
                 <h4 className='fs-5'>Call Us</h4>
                 <p>Mon-Fri from 8am to 5pm</p>
@@ -106,11 +106,7 @@ export default function Contact() {
 
 
           </div>
-          <div className="row">
-            <div className="col my-5 text-center">
-              <button type="button" className="btn btn-secondary rounded-pill px-5 button1">SEE ALL</button>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
