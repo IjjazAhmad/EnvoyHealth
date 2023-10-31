@@ -17,7 +17,7 @@ export default function DoctorCard(props) {
                             <div className="table">
                                 <h4> {name} <i className="fa-solid fa-star ms-3" style={{color: "#e09b06"}}></i> 4.9(250)</h4>
                                 <p className="">{category} </p> <br />
-                                <p className="my-3 text-body-tertiary"><i className="fa-solid fa-location-dot"></i> Henderson, Colorado |</p>
+                                <p className="my-3 text-body-tertiary"><i className="fa-solid fa-location-dot"></i> Henderson|</p>
                                 <div className='text-center my-3'>
                                         <Link to={bookUrl}  className="btn btn-primary rounded-pill px-5 button1 ">BOOK DOCTOR</Link>
                                 </div>
