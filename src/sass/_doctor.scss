@@ -1,4 +1,17 @@
 .doctor {
+    .Box{
+       
+        display: flex;
+       justify-content: center;
+       align-items: center;
+        text-align: center;
+        .tickImg{
+      
+            img{
+                width: 100px;
+            }
+        }
+    }
     img {
         width: 100%;
         max-width: 400px;

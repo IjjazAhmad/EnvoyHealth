@@ -3,14 +3,12 @@ import 'react-calendar/dist/Calendar.css';
 
 import Calendar from 'react-calendar';
 import { DocImg } from '../../../assets/images/doctorCard'
-
+import { images } from '../../../assets/images/index'
 // --------------- react calender 
 
 
-
-
 export default function BookDr() {
-
+  const [isConfirm, setIsConfirm] = useState(true)
   const [value, onChange] = useState();
   const [activeButtonIndex, setActiveButtonIndex] = useState(0);
   const [reminderButtonIndex, setReminderButtonIndex] = useState(0);
@@ -52,13 +50,19 @@ export default function BookDr() {
     setReminderButtonIndex(clickedButtonElement.dataset.index);
   };
 
+
+  // ------------------------------- 
+  const handleBooking = () => {
+    setIsConfirm(false)
+  }
+
   return (
     <>
       <div className="doctor mt-lg-5">
 
 
         <div className="container">
-          <div className="row">
+          <div className="row d-flex justify-content-between">
             <div className="col-12 col-md-6 col-lg-6 d-flex align-items-center">
               <div className="div">
                 <div className="img">
@@ -70,7 +74,7 @@ export default function BookDr() {
                 </div>
               </div>
             </div>
-            <div className="col-12 col-md-6 col-lg-6">
+            <div className="col-12 col-md-6 col-lg-3">
               <div className='float-lg-end mb-4'>
                 <div>
                   <Calendar onChange={onChange} value={value} className="Calendar" />
@@ -79,38 +83,57 @@ export default function BookDr() {
                   <div className="col">
                     <div className="timeSlot mt-3">
                       <div className="head">
-                        <p className='bg-secondary text-white'>Available Time</p>
+                        <p className='bg-secondary text-white'>Available Time ToDay</p>
                       </div>
-                      <div className="body py-3">
-                        <div className="row">
-                          <div className="col-12 text-center d-flex flex-wrap" style={{ maxWidth: '373px' }}>
-                            <button className="slotBox slot" data-index="0" onClick={handleActiveTime}>10:00 pm</button>
-                            <button className="slotBox slot" data-index="1" onClick={handleActiveTime}>10:00 pm</button>
-                            <button className="slotBox slot" data-index="2" onClick={handleActiveTime}>10:00 pm</button>
-                            <button className="slotBox slot" data-index="2" onClick={handleActiveTime}>10:00 pm</button>
-                            <button className="slotBox slot" data-index="2" onClick={handleActiveTime}>10:00 pm</button>
+                      {
+                        isConfirm ?
+                          <div className="body py-3">
+                            <div className="row">
+                              <div className="col-12 text-center d-flex flex-wrap" style={{ maxWidth: '373px' }}>
+                                <button className="slotBox slot" data-index="0" onClick={handleActiveTime}>10:00 pm</button>
+                                <button className="slotBox slot" data-index="1" onClick={handleActiveTime}>10:00 pm</button>
+                                <button className="slotBox slot" data-index="2" onClick={handleActiveTime}>10:00 pm</button>
+                                <button className="slotBox slot" data-index="2" onClick={handleActiveTime}>10:00 pm</button>
+                                <button className="slotBox slot" data-index="2" onClick={handleActiveTime}>10:00 pm</button>
+                              </div>
+                            </div>
+                            <div className="row">
+                              <div className="col">
+                                <p className='fs-6 ms-4'>Reminder Me Before</p>
+                              </div>
+                            </div>
+                            <div className="row">
+                              <div className="col-12 text-center d-flex flex-wrap" style={{ maxWidth: '373px' }}>
+                                <button className="slotBox reminder" data-index="0" onClick={handleActiveReminder}>30 minit</button>
+                                <button className="slotBox reminder" data-index="1" onClick={handleActiveReminder}>20 minit</button>
+                                <button className="slotBox reminder" data-index="2" onClick={handleActiveReminder}>10 minit</button>
+                                <button className="slotBox reminder" data-index="2" onClick={handleActiveReminder}>10 minit</button>
+                                <button className="slotBox reminder" data-index="2" onClick={handleActiveReminder}>10 minit</button>
+                              </div>
+                            </div>
+                            <div className="row">
+                              <div className="col text-center">
+                                <button type="button" className="btn btn-primary text-white rounded-pill px-5 " onClick={handleBooking} >CONFIRM</button>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                        <div className="row">
-                          <div className="col">
-                            <p className='fs-6 ms-4'>Reminder Me Before</p>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-12 text-center d-flex flex-wrap" style={{ maxWidth: '373px' }}>
-                            <button className="slotBox reminder" data-index="0" onClick={handleActiveReminder}>30 minit</button>
-                            <button className="slotBox reminder" data-index="1" onClick={handleActiveReminder}>20 minit</button>
-                            <button className="slotBox reminder" data-index="2" onClick={handleActiveReminder}>10 minit</button>
-                            <button className="slotBox reminder" data-index="2" onClick={handleActiveReminder}>10 minit</button>
-                            <button className="slotBox reminder" data-index="2" onClick={handleActiveReminder}>10 minit</button>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col text-center">
-                            <button type="button" className="btn btn-primary text-white rounded-pill px-5 ">CONFIRM</button>
-                          </div>
-                        </div>
-                      </div>
+                          :
+                          <>
+                              <div className="row Box">
+                                <div className="col">
+                                  <div className="tickImg">
+                                    <img src={images.submit} alt="" />
+                                  </div>
+                                  <h3>Booking confirmed</h3>
+                                  <div className="d-flex justify-content-center ">
+                                    <p className=' w-75'>You're booked with Erik Sanders. An invitation has been emailed to you.</p>
+                                  </div>
+                                </div>
+                              </div>
+                          
+                          </>
+
+                      }
                     </div>
                   </div>
                 </div>
@@ -126,7 +149,7 @@ export default function BookDr() {
                 <div className="list mt-3">
                   <ul>
                     <li>5 Years of experience</li>
-                    <li>Spoken Language: English, Hindi, Tamil</li>
+                    <li>Spoken Language: English, Hindi, Urdu</li>
                     <li>Registration Number : 2587413</li>
                   </ul>
                 </div>
