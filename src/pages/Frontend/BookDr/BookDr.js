@@ -4,12 +4,21 @@ import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
 import { DocImg } from '../../../assets/images/doctorCard'
 import { images } from '../../../assets/images/index'
+import axios from "axios";
 // --------------- react calender 
 
 
 export default function BookDr() {
   const [isConfirm, setIsConfirm] = useState(true)
   const [value, onChange] = useState();
+  const [selectedTime, setSelectedTime] = useState(''); // State to store the selected value
+
+  // Function to handle the change in the select element
+  const handleChange = (event) => {
+    const selectedValue = event.target.value;
+    setSelectedTime(selectedValue);
+  };
+
   const [activeButtonIndex, setActiveButtonIndex] = useState(0);
   const [reminderButtonIndex, setReminderButtonIndex] = useState(0);
 
@@ -53,8 +62,30 @@ export default function BookDr() {
 
   // ------------------------------- 
   const handleBooking = () => {
-    setIsConfirm(false)
-  }
+    setIsConfirm(false);
+    let date = value;
+    // Assuming the server expects a YYYY-MM-DD format
+const formattedDate = date.toISOString().split('T')[0];
+
+    console.log("Selected date:", date);
+    console.log("Selected time:", selectedTime);
+  
+    let drId = "123";
+    const formData = { formattedDate, selectedTime, drId };
+    
+    console.log("Form data:", formData);
+  
+    axios.post("http://localhost:7000/appointment/addApoint", formData)
+      .then((response) => {
+        console.log("Appointment added successfully!!");
+        console.log("Response data:", response.data);
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+      });
+  };
+  
+  
 
   return (
     <>
@@ -90,28 +121,36 @@ export default function BookDr() {
                           <div className="body py-3">
                             <div className="row">
                               <div className="col-12 text-center d-flex flex-wrap" style={{ maxWidth: '373px' }}>
-                                <button className="slotBox slot" data-index="0" onClick={handleActiveTime}>10:00 pm</button>
-                                <button className="slotBox slot" data-index="1" onClick={handleActiveTime}>10:00 pm</button>
-                                <button className="slotBox slot" data-index="2" onClick={handleActiveTime}>10:00 pm</button>
-                                <button className="slotBox slot" data-index="2" onClick={handleActiveTime}>10:00 pm</button>
-                                <button className="slotBox slot" data-index="2" onClick={handleActiveTime}>10:00 pm</button>
+                                <select
+                                  className="form-select"
+                                  aria-label="Default select example"
+                                  onChange={handleChange}
+                                  value={selectedTime} // This is important for controlled components in React
+                                >
+                                  <option disabled>Select Time</option>
+                                  <option value="10">10 PM</option>
+                                  <option value="11">11 PM</option>
+                                  <option value="12">12 PM</option>
+                                </select>
                               </div>
                             </div>
-                            <div className="row">
+                            {/* <div className="row">
                               <div className="col">
-                                <p className='fs-6 ms-4'>Reminder Me Before</p>
+                            
+                                <select class="form-select" aria-label="Default select example">
+                                  <option selected>Open this select menu</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
                               </div>
-                            </div>
+                            </div> */}
                             <div className="row">
                               <div className="col-12 text-center d-flex flex-wrap" style={{ maxWidth: '373px' }}>
-                                <button className="slotBox reminder" data-index="0" onClick={handleActiveReminder}>30 minit</button>
-                                <button className="slotBox reminder" data-index="1" onClick={handleActiveReminder}>20 minit</button>
-                                <button className="slotBox reminder" data-index="2" onClick={handleActiveReminder}>10 minit</button>
-                                <button className="slotBox reminder" data-index="2" onClick={handleActiveReminder}>10 minit</button>
-                                <button className="slotBox reminder" data-index="2" onClick={handleActiveReminder}>10 minit</button>
+
                               </div>
                             </div>
-                            <div className="row">
+                            <div className="row my-2">
                               <div className="col text-center">
                                 <button type="button" className="btn btn-primary text-white rounded-pill px-5 " onClick={handleBooking} >CONFIRM</button>
                               </div>
@@ -119,18 +158,18 @@ export default function BookDr() {
                           </div>
                           :
                           <>
-                              <div className="row Box">
-                                <div className="col">
-                                  <div className="tickImg">
-                                    <img src={images.submit} alt="" />
-                                  </div>
-                                  <h3>Booking confirmed</h3>
-                                  <div className="d-flex justify-content-center ">
-                                    <p className=' w-75'>You're booked with Erik Sanders. An invitation has been emailed to you.</p>
-                                  </div>
+                            <div className="row Box">
+                              <div className="col">
+                                <div className="tickImg">
+                                  <img src={images.submit} alt="" />
+                                </div>
+                                <h3>Booking confirmed</h3>
+                                <div className="d-flex justify-content-center ">
+                                  <p className=' w-75'>You're booked with Erik Sanders. An invitation has been emailed to you.</p>
                                 </div>
                               </div>
-                          
+                            </div>
+
                           </>
 
                       }

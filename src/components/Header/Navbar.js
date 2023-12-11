@@ -20,10 +20,10 @@ export default function Navbar() {
                 <Link to={"/"} className="nav-link active" >About Us</Link>
               </li>
               <li className="nav-item">
-                <Link to={"/blog"} className="nav-link" >Pages</Link>
+                <Link to={"/blog"} className="nav-link" >Blog</Link>
               </li>
               <li className="nav-item">
-                <Link to={"/BookDr"} className="nav-link" >Doctors</Link>
+                <Link to={"/BookDr"} className="nav-link" >Dr Detail</Link>
               </li>
               <li className="nav-item">
                 <Link to={"/contact"} className="nav-link" >Contacts</Link>
@@ -32,7 +32,7 @@ export default function Navbar() {
             </ul>
             <div className="d-flex">
                 <Link to={"auth/login"} className="btn btn-outline text-primary">Signin</Link>
-                <button type='button' className="btn btn-outline-primary">GET STARTED</button>
+                <Link to={"/dashboard/dashboard"} type='button' className="btn btn-outline-primary">Dashboard</Link>
                 
             </div>
           </div>
